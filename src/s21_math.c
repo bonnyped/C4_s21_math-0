@@ -14,8 +14,8 @@ int checking_number(double x) {
 
 int s21_abs(int x) { return abs(x); }
 
-long double s21_acos(double x) { return acos(x); }
 
+long double s21_acos(double x) { return s21_M_PI / 2 - s21_asin(x); }
 // проблемы с точностью 0.9
 // long double s21_asin(double x) {
 //   long double result = 0;
@@ -46,7 +46,17 @@ long double s21_asin(double x) {
   return result;
 }
 
-long double s21_atan(double x) { return atan(x); }
+long double s21_atan(double x) {
+  long double result = 0.0;
+  x != x ? result = x : result;
+  if (result == result) {
+    if (x == s21_POSITIVE_INFINITY || x == s21_NEGATIVE_INFINITY) {
+      x > 0 ? result = s21_M_PI / 2 : (result = -s21_M_PI / 2);
+    } else
+      result = s21_asin(x / s21_sqrt(1.0 + s21_pow(x, 2.0)));
+  }
+  return result;
+}
 
 long double s21_ceil(double x) {
   long double result = (long double)x;
@@ -70,7 +80,14 @@ long double s21_cos(double x) { return cos(x); }
 
 long double s21_exp(double x) { return exp(x); }
 
-long double s21_fabs(double x) { return fabs(x); }
+long double s21_fabs(double x) {
+  long double result = x;
+  if (result < 0) result *= -1;
+  if (result == s21_ZERO_NUMBER) result = s21_ZERO_NUMBER;
+  if (result != result) result *= -1;
+
+  return result;
+}
 
 long double s21_floor(double x) {
   long double result = (long double)x;
@@ -149,7 +166,56 @@ long double s21_log(double x) {
   return result;
 }
 
-long double s21_pow(double base, double exp) { return pow(base, exp); }
+long double s21_pow(double base, double exponent) {
+  long double result = s21_exp(exponent * s21_log(s21_fabs(base)));
+  int flag = 0;
+  if (exponent == s21_ZERO_NUMBER) result = 1.0;
+  if (base == s21_ZERO_NUMBER && is_integer_number(exponent) &&
+      !is_even_number(exponent)) {
+    is_negative_zero(base) ? result = result * -1 : (result);
+  } else if (base == 1) {
+    result = 1.0;
+    flag = 1;
+  } else if (base == s21_NEGATIVE_INFINITY) {
+    if (exponent < 0 && is_integer_number(exponent) &&
+        !is_even_number(exponent)) {
+      result = -s21_ZERO_NUMBER;
+    }
+    if ((exponent < 0 && !is_integer_number(exponent)) ||
+        (exponent < 0 && is_even_number(exponent))) {
+      result = s21_ZERO_NUMBER;
+    }
+    if (exponent > 0 && is_integer_number(exponent) &&
+        !is_even_number(exponent)) {
+      result = s21_NEGATIVE_INFINITY;
+    }
+    if ((exponent > 0 && !is_integer_number(exponent)) ||
+        (exponent > 0 && is_even_number(exponent))) {
+      result = s21_POSITIVE_INFINITY;
+    }
+  } else if (base == s21_POSITIVE_INFINITY) {
+    if (exponent < 0) result = s21_ZERO_NUMBER;
+    if (exponent > 0) result = s21_POSITIVE_INFINITY;
+  } else if (exponent == s21_NEGATIVE_INFINITY ||
+             exponent == s21_POSITIVE_INFINITY) {
+    if (base == -1) {
+      result = 1.0;
+      flag = 1;
+    }
+    if (exponent == s21_POSITIVE_INFINITY) {
+      if (base < 1 && base > -1 && flag == 0) result = s21_ZERO_NUMBER;
+      if (base < -1 && flag == 0) result = s21_POSITIVE_INFINITY;
+      if (base > 1) result = s21_POSITIVE_INFINITY;
+    }
+    if (exponent == s21_NEGATIVE_INFINITY) {
+      if (base < 1 && base > -1 && flag == 0) result = s21_POSITIVE_INFINITY;
+      if (base < -1 && flag == 0) result = s21_ZERO_NUMBER;
+      if (base > 1) result = s21_ZERO_NUMBER;
+    }
+  }
+
+  return result;
+}
 
 long double s21_sin(double x) {
   long double result = 0;
@@ -172,6 +238,24 @@ long double s21_sin(double x) {
   return result;
 }
 
+/*long double s21_sqrt(double x) {
+  long double result = x;
+  long double tmp = result;
+  long double check_res = s21_ZERO_NUMBER / s21_ZERO_NUMBER;
+  if (result > 0) {
+    long double lower_value = s21_ZERO_NUMBER;
+    long double upper_velue = s21_max(result);
+    while (s21_fabs(result) != s21_fabs(check_res)) {
+      check_res = result;
+      result = (lower_value + upper_velue) / 2;
+      result *result > tmp ? upper_velue = result : (lower_value = result);
+    }
+  }
+  if (result < 0) result = -s21_NAN;
+
+  return result;
+}//from bonnyped sqrt*/
+
 long double s21_sqrt(double x) {
   long double result = x;
   if (x > 0 && checking_number(x)) {
@@ -190,3 +274,21 @@ long double s21_sqrt(double x) {
 }
 
 long double s21_tan(double x) { return s21_sin(x) / s21_cos(x); }
+
+
+long double s21_max(double x) {
+  long double max = 1;
+  if (max < x) max = x;
+  return max;
+}
+
+int is_negative_zero(double x) {
+  return (x == s21_ZERO_NUMBER && 1.0 / x == s21_NEGATIVE_INFINITY);
+}
+
+int is_integer_number(double x) { return (x - s21_floor(x) < s21_EPSILON); }
+
+int is_even_number(double x) {
+  x = s21_fabs(x);
+  return s21_fmod(x, 2.0) < s21_EPSILON;
+}
