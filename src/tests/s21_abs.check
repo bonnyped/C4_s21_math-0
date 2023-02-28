@@ -1,0 +1,31 @@
+#suite s21_abs_tests
+
+#test s21_abs_1
+  int a = 0;
+  int orig = abs(a);
+  int s21 = s21_abs(a);
+  ck_assert_int_eq(orig, s21);
+
+#test s21_abs_2
+  int a = -1;
+  int orig = abs(a);
+  int s21 = s21_abs(a);
+  ck_assert_int_eq(orig, s21);
+
+#test s21_abs_3
+  int a = 1;
+  int orig = abs(a);
+  int s21 = s21_abs(a);
+  ck_assert_int_eq(orig, s21);
+
+#test s21_abs_4
+  int a = INT_MAX;
+  int orig = abs(a);
+  int s21 = s21_abs(a);
+  ck_assert_int_eq(orig, s21);
+
+#test s21_abs_5
+  int a = INT_MIN;
+  int orig = abs(a);
+  int s21 = s21_abs(a);
+  ck_assert_int_eq(orig, s21);

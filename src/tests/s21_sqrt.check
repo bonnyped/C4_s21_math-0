@@ -1,0 +1,28 @@
+#suite s21_sqrt_tests
+
+#test s21_sqrt_1
+  double a = 0;
+  long double orig = sqrt(a);
+  long double s21 = s21_sqrt(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_sqrt_2
+  double a = 777;
+  double b = 777;
+  long double orig = sqrt(a);
+  long double s21 = s21_sqrt(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+  for (int i = 0; i < 11; i++) {
+    a = (double)orig + 11.01;
+    b = (double)s21 + 11.01;
+    orig = sqrt(a);
+    s21 = s21_sqrt(b);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+  }
+
+  #test s21_sqrt_3
+  double a = -1.2;
+  long double orig = sqrt(a);
+  long double s21 = s21_sqrt(a);
+  ck_assert_ldouble_nan(orig);
+  ck_assert_ldouble_nan(s21);

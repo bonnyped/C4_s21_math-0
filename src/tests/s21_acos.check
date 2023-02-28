@@ -1,0 +1,7 @@
+#suite s21_acos_tests
+
+#test s21_acos_1
+  double a = 0.0;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq(orig, s21);

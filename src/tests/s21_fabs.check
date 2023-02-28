@@ -1,0 +1,19 @@
+#suite s21_fabs_tests
+
+#test s21_fabs_1
+  double a = -0.0;
+  long double orig = fabs(a);
+  long double s21 = s21_fabs(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_fabs_2
+  double a = -12987678.7991;
+  long double orig = fabs(a);
+  long double s21 = s21_fabs(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_fabs_3
+  double a = -0.0007991;
+  long double orig = fabs(a);
+  long double s21 = s21_fabs(a);
+  ck_assert_ldouble_eq(orig, s21);

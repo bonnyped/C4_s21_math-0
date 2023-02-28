@@ -1,0 +1,52 @@
+#suite s21_tan_tests
+
+#test s21_tan_1
+  double a = 0.0;
+  double orig = tan(a);
+  long double s21 = s21_tan(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_tan_2
+  double a = -0.0;
+  double orig = tan(a);
+  long double s21 = s21_tan(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_tan_3
+  double a = -1.0 / 0.0;
+  double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_nan(s21);
+  ck_assert_ldouble_nan(orig);
+
+#test s21_tan_4
+  double a = 1.0 / 0.0;
+  double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_nan(s21);
+  ck_assert_ldouble_nan(orig);
+
+#test s21_tan_5
+  double a = 0.0 / 0.0;
+  double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_nan(s21);
+  ck_assert_ldouble_nan(orig);
+
+#test s21_tan_6
+  double a = 0.1;
+  double orig = tan(a);
+  long double s21 = s21_tan(a);
+  ck_assert_ldouble_le_tol(orig, s21, 0.100335);
+
+#test s21_tan_7
+  double a = 0.15 * 3.14159265358979323846 / 4;
+  double orig = tan(a);
+  long double s21 = s21_tan(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_tan_8
+  double a = 629386237452.99;
+  double orig = tan(a);
+  long double s21 = s21_tan(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-5);

@@ -1,0 +1,116 @@
+#suite s21_sin_tests
+
+#test s21_sin_1
+  double a = 0.0;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_sin_2
+  double a = 0.01;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_sin_3
+  double a = 123123123.123;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_sin_4
+  double a = -123123123.123;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_sin_5
+  double a = -0.453123;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_sin_6
+  double a = -0.0 / 0.0;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_nan(s21);
+  ck_assert_ldouble_nan(orig);
+
+#test s21_sin_7
+  double a = -1.0 / 0.0;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_nan(s21);
+  ck_assert_ldouble_nan(orig);
+
+#test s21_sin_8
+  double a = 1.0 / 0.0;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_nan(s21);
+  ck_assert_ldouble_nan(orig);
+
+#test s21_sin_9
+  double a = -0.0;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq(s21, orig);
+
+#test s21_sin_10
+  double a = 999999876.1;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_sin_11
+  double a = 0.999999;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_sin_12
+  double a = 0.778;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_sin_13
+  double a = 0.543;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_sin_14
+  double a = 0.3337;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_sin_15
+  double a = 0.111111;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_sin_16
+  double a = 0.000001;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_sin_17
+  double a = 2347985689.000001;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_sin_18
+  double a = 23479852987346.000001;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-4);

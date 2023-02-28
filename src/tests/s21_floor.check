@@ -1,0 +1,117 @@
+#suite s21_floor_tests
+
+#test s21_floor_1
+  double a = 0;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_2
+  double a = 0.00000000000000001;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_3
+  double a = 1.000000000000001;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_4
+  double a = 1.0000000000000001;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_5
+  double a = -1.000000000000001;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_6
+  double a = -0.0;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_7
+  double a = +0.0;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_8
+  double a = 12345678909876.001;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_9
+  double a = -9223372036854775807.1;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_10
+  double a = 9223372036854775807.5;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_11
+  double a = 1.0 / 0.0;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_12
+  double a = -1.0 / 0.0;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_13
+  double a = 0.0 / 0.0;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_nan(orig);
+  ck_assert_ldouble_nan(s21);
+
+#test s21_floor_14
+  double a = -0.0 / 0.0;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_nan(orig);
+  ck_assert_ldouble_nan(s21);
+
+#test s21_floor_15
+  double a = 1.84467441e+025;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_16
+  double a = -1.84467441e+025;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_17
+  double a = -1.84467441e+018;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_18
+  double a = -1.84467441e+013;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_floor_19
+  double a = 1.84467441e+019;
+  long double orig = floor(a);
+  long double s21 = s21_floor(a);
+  ck_assert_ldouble_eq(orig, s21);

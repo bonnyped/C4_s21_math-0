@@ -1,0 +1,7 @@
+#suite s21_atan_tests
+
+#test s21_atan_1
+  double a = 0;
+  long double orig = atan(a);
+  long double s21 = s21_atan(a);
+  ck_assert_ldouble_eq(orig, s21);

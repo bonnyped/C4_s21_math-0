@@ -1,0 +1,199 @@
+#suite s21_asin_tests
+
+#test s21_asin_1
+  double a = 0.0;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_asin_1_2
+  double a = -0.0;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_asin_2
+  double a = 0.1;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-6);
+
+#test s21_asin_3
+  double a = -1.0;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_asin_4
+  double a = 1.0;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_asin_5
+  double a = 1.0 / 0.0;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_nan(s21);
+   ck_assert_ldouble_nan(orig);
+
+#test s21_asin_6
+  double a = -1.0 / 0.0;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_nan(s21);
+   ck_assert_ldouble_nan(orig);
+
+#test s21_asin_7
+  double a = 0.0 / 0.0;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_nan(s21);
+  ck_assert_ldouble_nan(orig);
+
+
+
+#test s21_asin_8
+  double a = -0.999999;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_9
+  double a = 0.999999;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_10
+  double a = 0.1;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_11
+  double a = -0.1;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_12
+  double a = -0.0001;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_asin_13
+  double a = 0.0001;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_asin_14
+  double a = 0.0000009;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_15
+  double a = 0.9;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_16
+  double a = 0.8;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_17
+  double a = 0.7;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_18
+  double a = 0.6;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_19
+  double a = 0.5;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_asin_20
+  double a = 0.4;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_21
+  double a = 0.3;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_22
+  double a = 0.2;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_asin_123
+  double a = -0.9;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_24
+  double a = -0.8;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_25
+  double a = -0.7;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_26
+  double a = -0.6;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_27
+  double a = -0.5;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_asin_28
+  double a = -0.4;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_29
+  double a = -0.3;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_asin_30
+  double a = -0.2;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
