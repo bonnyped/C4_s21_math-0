@@ -6,10 +6,19 @@ TEST_FLAGS = $(shell pkg-config --cflags --libs check)
 all : clean s21_math.a test gcov_report
 
 test: test.o s21_math.a
-	$(CC) test.o  s21_math.a -o test -L. $(TEST_FLAGS)
+ifeq ($(OS),Linux)
+	$(CC) test.o s21_math.a -o test -L. $(TEST_FLAGS) -lm
+else
+	$(CC) test.o s21_math.a -o test -L. $(TEST_FLAGS)
+endif
+	
 
 test.o: test.c
+ifeq ($(OS),Linux)
+	$(CC) $(CFLAGS) test.c -o test.o -lm
+else
 	$(CC) $(CFLAGS) test.c -o test.o
+endif
 
 test.c: 
 	checkmk clean_mode=1 tests/include.file tests/*.check > test.c 
@@ -17,9 +26,12 @@ test.c:
 
 
 s21_math.a : s21_math.c
+ifeq ($(OS),Linux)
+	$(CC) -c $(CFLAGS) s21_math.c -lm
+else
 	$(CC) -c $(CFLAGS) s21_math.c
+endif
 	ar rc s21_math.a s21_math.o
-
 gcov_report: test.c
 	$(CC) -fprofile-arcs -ftest-coverage test.c s21_math.c  -o tests/gcov_report $(TEST_FLAGS)
 	tests/./gcov_report

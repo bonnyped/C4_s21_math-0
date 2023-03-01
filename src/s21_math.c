@@ -12,10 +12,16 @@ int checking_number(double x) {
   return stop;
 }
 
-int s21_abs(int x) { return abs(x); }
+int s21_abs(int x) {
+	int result = x;
+	if (x < 0) {
+		result = -result;
+	}
+	return result;
+}
 
 
-long double s21_acos(double x) { return s21_M_PI / 2 - s21_asin(x); }
+//long double s21_acos(double x) { return s21_M_PI / 2 - s21_asin(x); }
 // проблемы с точностью 0.9
 // long double s21_asin(double x) {
 //   long double result = 0;
@@ -39,6 +45,10 @@ long double s21_acos(double x) { return s21_M_PI / 2 - s21_asin(x); }
 //   }
 //   return result;
 // }
+
+long double s21_acos(double x) {
+  return acos(x);
+}
 
 long double s21_asin(double x) {
   long double result = 0;
@@ -76,9 +86,40 @@ long double s21_ceil(double x) {
   return result;
 }
 
-long double s21_cos(double x) { return cos(x); }
+long double s21_cos(double x) {
+	long double result = 0;
+	long double prev = -1;
+	long double add = 1;
+	int n = 1;
+	x = s21_fabs(x);
+	x = s21_fmod(x , (2 * s21_M_PI));
+	
+	while (result != prev) {
+		prev = result;
+		result = result + add;
+		add = -add * x * x / (2*n) / (2*n-1);
+		n++;
+	}
+	return result;
+}
 
-long double s21_exp(double x) { return exp(x); }
+long double s21_exp(double x) {
+	long double result = 0;
+	long double prev = -1;
+	long double add = 1;
+	int n = 1;
+	if (x < 0) {
+		result = 1 / s21_exp(-x);
+		prev = result;
+	}
+	while (result != prev) {
+		prev = result;
+		result = result + add;
+		add = add * x / n;
+		n++;
+	}
+	return result;
+}
 
 long double s21_fabs(double x) {
   long double result = x;
