@@ -98,7 +98,7 @@ long double s21_cos(double x) {
 	printf("argument is %lf\n", x);
 	  x = s21_fabs(x);
 	  printf("new argument is %lf\n", x);
-	  x = fmod(x , (2 * s21_M_PI));
+	  x = s21_fmod(x , (2 * s21_M_PI));
 	  printf("new new argument is %lf\n", x);
 	  while (result != prev) {
 		  prev = result;
