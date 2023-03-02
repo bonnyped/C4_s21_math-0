@@ -95,11 +95,8 @@ long double s21_cos(double x) {
 	if (x == s21_NAN || x == s21_POSITIVE_INFINITY || x == s21_NEGATIVE_INFINITY || x != x){
 	result = s21_NAN;
 	} else {
-	printf("argument is %lf\n", x);
 	  x = s21_fabs(x);
-	  printf("new argument is %lf\n", x);
 	  x = s21_fmod(x , (2 * s21_M_PI));
-	  printf("new new argument is %lf\n", x);
 	  while (result != prev) {
 		  prev = result;
 		  result = result + add;
@@ -196,11 +193,11 @@ long double s21_log(double x) {
   if (x > 0 && x != 1 && checking_number(x)) {
     result = 0;
     long double xx = x;
-    long double res = -100;
+    //long double res = -100;
     while (++n, (xx /= s21_EXP) > s21_EXP)
       ;
-    while (res != result) {
-      res = result;
+    while (s21_fabs(xx - s21_exp(result)) / (xx + s21_exp(result))>1e-10) {
+      //res = result;
       result += (xx - s21_exp(result)) / (xx + s21_exp(result));
     }
     result += n;
