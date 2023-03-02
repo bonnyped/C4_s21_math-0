@@ -1,7 +1,110 @@
 #suite s21_cos_tests
 
-#test s21_cos_1
-  double a = 0.0;
+#test s21_cos_2
+  double a = 0.01;
   long double orig = cos(a);
   long double s21 = s21_cos(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_cos_3
+  double a = 123123123.123;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_cos_4
+  double a = -123123123.123;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_cos_5
+  double a = -0.453123;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_cos_6
+  double a = -0.0 / 0.0;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_nan(s21);
+  ck_assert_ldouble_nan(orig);
+
+#test s21_cos_7
+  double a = -1.0 / 0.0;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_nan(s21);
+  ck_assert_ldouble_nan(orig);
+
+#test s21_cos_8
+  double a = 1.0 / 0.0;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_nan(s21);
+  ck_assert_ldouble_nan(orig);
+
+#test s21_cos_9
+  double a = -0.0;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_eq(s21, orig);
+
+#test s21_cos_10
+  double a = 999999876.1;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_cos_11
+  double a = 0.999999;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_cos_12
+  double a = 0.778;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_cos_13
+  double a = 0.543;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_cos_14
+  double a = 0.3337;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_cos_15
+  double a = 0.111111;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_cos_16
+  double a = 0.000001;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_cos_17
+  double a = 2347985689.000001;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_cos_18
+  double a = 23479852987346.000001;
+  long double orig = cos(a);
+  long double s21 = s21_cos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-4);

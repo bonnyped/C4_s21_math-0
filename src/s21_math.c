@@ -2,6 +2,7 @@
 
 #include <math.h>    // del
 #include <stdlib.h>  // del
+#include <stdio.h> //del
 
 int checking_number(double x) {
   int stop = 0;
@@ -91,14 +92,20 @@ long double s21_cos(double x) {
 	long double prev = -1;
 	long double add = 1;
 	int n = 1;
-	x = s21_fabs(x);
-	x = s21_fmod(x , (2 * s21_M_PI));
-	
-	while (result != prev) {
-		prev = result;
-		result = result + add;
-		add = -add * x * x / (2*n) / (2*n-1);
-		n++;
+	if (x == s21_NAN || x == s21_POSITIVE_INFINITY || x == s21_NEGATIVE_INFINITY || x != x){
+	result = s21_NAN;
+	} else {
+	printf("argument is %lf\n", x);
+	  x = s21_fabs(x);
+	  printf("new argument is %lf\n", x);
+	  x = fmod(x , (2 * s21_M_PI));
+	  printf("new new argument is %lf\n", x);
+	  while (result != prev) {
+		  prev = result;
+		  result = result + add;
+		  add = -add * x * x / (2*n) / (2*n-1);
+		  n++;
+	  }
 	}
 	return result;
 }

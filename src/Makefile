@@ -11,7 +11,12 @@ ifeq ($(OS),Linux)
 else
 	$(CC) test.o s21_math.a -o test -L. $(TEST_FLAGS)
 endif
-	
+
+debug: main.o s21_math.a
+	$(CC) main.o s21_math.a -o debug -L. $(TEST_FLAGS) -lm
+	./debug
+main.o:
+	$(CC) $(CFLAGS) main.c -o main.o -lm
 
 test.o: test.c
 ifeq ($(OS),Linux)
