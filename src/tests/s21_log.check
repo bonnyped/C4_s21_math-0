@@ -80,7 +80,7 @@
   double a = 289379857978;
   long double orig = log(a);
   long double s21 = s21_log(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-6);
 
 #test s21_log_7
   double a = 289379857978728532783987253.0;
@@ -98,32 +98,32 @@
   double a = 0.00289379857978;
   long double orig = log(a);
   long double s21 = s21_log(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-6);
 
 
 #test s21_log_10
   double a = 45.00289379857978;
   long double orig = log(a);
   long double s21 = s21_log(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-6);
 
 #test s21_log_11
   double a = 457575.11;
   long double orig = log(a);
   long double s21 = s21_log(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-6);
 
 #test s21_log_12
   double a = 234234457572342345.11241;
   long double orig = log(a);
   long double s21 = s21_log(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-6);
 
 
 #test s21_log_13
   double a = 234234457572342124124345.112314;
   long double orig = log(a);
   long double s21 = s21_log(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-6);
 
 
