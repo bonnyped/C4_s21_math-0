@@ -11,3 +11,72 @@
   long double orig = exp(a);
   long double s21 = s21_exp(a);
   ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+  
+#test s21_exp_3
+  double a = -23;
+  long double orig = exp(a);
+  long double s21 = s21_exp(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+  
+#test s21_exp_4
+  double a = 23;
+  long double orig = exp(a);
+  long double s21 = s21_exp(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+  
+#test s21_exp_5
+  double a = 374534;
+  long double s21 = s21_exp(a);
+  ck_assert_ldouble_infinite(s21);
+  
+#test s21_exp_6
+  double a = 0.00001;
+  long double orig = exp(a);
+  long double s21 = s21_exp(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+  
+#test s21_exp_7
+  double a = 1;
+  long double orig = exp(a);
+  long double s21 = s21_exp(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+  
+  
+#test s21_exp_8
+  double a = 123.456;
+  long double orig = exp(a);
+  long double s21 = s21_exp(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e+38);
+  
+#test s21_exp_9
+  double a = -0.0;
+  long double orig = exp(a);
+  long double s21 = s21_exp(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+  
+#test s21_exp_10
+  double a = 1.0/0.0;
+  long double s21 = s21_exp(a);
+  ck_assert_ldouble_infinite(s21);
+  
+#test s21_exp_11
+  double a = -1.0/0.0;
+  long double orig = exp(a);
+  long double s21 = s21_exp(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+  
+#test s21_exp_12
+  double a = 0.0/0.0;
+  long double s21 = s21_exp(a);
+  ck_assert_ldouble_nan(s21);
+  
+#test s21_exp_13
+  double a = 235235;
+  long double s21 = s21_exp(a);
+  ck_assert_ldouble_infinite(s21);
+  
+#test s21_exp_14
+  double a = -23523523;
+  long double orig = exp(a);
+  long double s21 = s21_exp(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);

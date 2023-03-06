@@ -116,15 +116,19 @@ long double s21_exp(double x) {
 	long double prev = -1;
 	long double add = 1;
 	int n = 1;
-	if (x < 0) {
-		result = 1 / s21_exp(-x);
-		prev = result;
-	}
-	while (result != prev) {
-		prev = result;
-		result = result + add;
-		add = add * x / n;
-		n++;
+	if (x != x) {
+	  result = s21_NAN;
+	} else {
+	  if (x < 0) {
+		  result = 1 / s21_exp(-x);
+		  prev = result;
+	  }
+	  while (result != prev && add > s21_EPSILON) {
+		  prev = result;
+		  result = result + add;
+		  add = add * x / n;
+		  n++;
+	  }
 	}
 	return result;
 }
