@@ -48,12 +48,32 @@ int s21_abs(int x) {
 // }
 
 long double s21_acos(double x) {
-  return acos(x);
+  return s21_M_05PI - asin(x);
 }
 
 long double s21_asin(double x) {
   long double result = 0;
-  result = s21_M_PI / 2 - acos(x);
+  if (x == s21_NAN || x >1 || x <-1 || x != x){
+    result = s21_NAN;
+  } else if (x == 1.0) {
+    result = s21_M_05PI;
+  } else if (x == -1.0) {
+    result = -s21_M_05PI;
+  } else if (x == 0){
+    result = 0;}
+    else {
+    long double left = -s21_M_05PI;
+    long double right = s21_M_05PI;
+    while ((right - left)/2 > 10e-14){
+      long double center = (right + left)/2;
+      if (s21_sin(center) - x < 0) {
+        left = center;
+      } else {
+        right = center;
+      }
+    }
+    result = (right + left)/2;
+  }
   return result;
 }
 

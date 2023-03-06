@@ -4,31 +4,31 @@
   double a = 0.0;
   long double orig = asin(a);
   long double s21 = s21_asin(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-6);
 
 #test s21_asin_1_2
   double a = -0.0;
   long double orig = asin(a);
   long double s21 = s21_asin(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 #test s21_asin_2
   double a = 0.1;
   long double orig = asin(a);
   long double s21 = s21_asin(a);
-    ck_assert_ldouble_eq_tol(orig, s21, 10e-6);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 #test s21_asin_3
   double a = -1.0;
   long double orig = asin(a);
   long double s21 = s21_asin(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 #test s21_asin_4
   double a = 1.0;
   long double orig = asin(a);
   long double s21 = s21_asin(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 #test s21_asin_5
   double a = 1.0 / 0.0;

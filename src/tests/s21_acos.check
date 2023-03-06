@@ -4,4 +4,196 @@
   double a = 0.0;
   long double orig = acos(a);
   long double s21 = s21_acos(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-6);
+
+#test s21_acos_1_2
+  double a = -0.0;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_2
+  double a = 0.1;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_3
+  double a = -1.0;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_4
+  double a = 1.0;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_5
+  double a = 1.0 / 0.0;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_nan(s21);
+   ck_assert_ldouble_nan(orig);
+
+#test s21_acos_6
+  double a = -1.0 / 0.0;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_nan(s21);
+   ck_assert_ldouble_nan(orig);
+
+#test s21_acos_7
+  double a = 0.0 / 0.0;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_nan(s21);
+  ck_assert_ldouble_nan(orig);
+
+
+
+#test s21_acos_8
+  double a = -0.999999;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_9
+  double a = 0.999999;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_10
+  double a = 0.1;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_11
+  double a = -0.1;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_12
+  double a = -0.0001;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_acos_13
+  double a = 0.0001;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_acos_14
+  double a = 0.0000009;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_15
+  double a = 0.9;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_16
+  double a = 0.8;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_17
+  double a = 0.7;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_18
+  double a = 0.6;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_19
+  double a = 0.5;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_acos_20
+  double a = 0.4;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_21
+  double a = 0.3;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_22
+  double a = 0.2;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_acos_123
+  double a = -0.9;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_24
+  double a = -0.8;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_25
+  double a = -0.7;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_26
+  double a = -0.6;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_27
+  double a = -0.5;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
+#test s21_acos_28
+  double a = -0.4;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_29
+  double a = -0.3;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_acos_30
+  double a = -0.2;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+
