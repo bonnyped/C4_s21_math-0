@@ -29,3 +29,9 @@
   int orig = abs(a);
   int s21 = s21_abs(a);
   ck_assert_int_eq(orig, s21);
+  
+  #test s21_abs_6
+  int a = -346232;
+  int orig = abs(a);
+  int s21 = s21_abs(a);
+  ck_assert_int_eq(orig, s21);

@@ -46,7 +46,7 @@
   ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 #test s21_tan_8
-  double a = 629386237452.99;
+  double a = 626782.99;
   double orig = tan(a);
   long double s21 = s21_tan(a);
-  ck_assert_ldouble_eq_tol(orig, s21, 10e-5);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-6);

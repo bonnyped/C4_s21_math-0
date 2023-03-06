@@ -241,3 +241,10 @@
   long double orig = fmod(x, y);
   long double s21 = s21_fmod(x, y);
   ck_assert_ldouble_eq_tol(orig, s21, 10e-6);
+  
+  #test s21_fmod_33
+  double x = 23479852987346.000001;
+  double y = 3.14159265358979323846;
+  long double orig = fmod(x, y);
+  long double s21 = s21_fmod(x, y);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-15);

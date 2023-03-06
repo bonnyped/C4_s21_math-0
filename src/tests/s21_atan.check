@@ -5,3 +5,51 @@
   long double orig = atan(a);
   long double s21 = s21_atan(a);
   ck_assert_ldouble_eq(orig, s21);
+ 
+
+#test s21_atan_2
+  double a = -1.0 / 0.0;
+  double orig = atan(a);
+  long double s21 = s21_atan(a);
+  ck_assert_ldouble_le_tol(orig, s21, 10e-7);
+  
+#test s21_atan_3
+  double a = 1.0 / 0.0;
+  double orig = atan(a);
+  long double s21 = s21_atan(a);
+  ck_assert_ldouble_le_tol(orig, s21, 10e-7);
+  
+#test s21_atan_4
+  double a = -0.0 / 0.0;
+  long double s21 = s21_atan(a);
+  ck_assert_ldouble_nan(s21);
+  
+#test s21_atan_5
+  double a = 12;
+  double orig = atan(a);
+  long double s21 = s21_atan(a);
+  ck_assert_ldouble_le_tol(orig, s21, 10e-7);
+  
+#test s21_atan_6
+  double a = -0.0;
+  double orig = atan(a);
+  long double s21 = s21_atan(a);
+  ck_assert_ldouble_le_tol(orig, s21, 10e-7);
+  
+#test s21_atan_7
+  double a = -0.001;
+  double orig = atan(a);
+  long double s21 = s21_atan(a);
+  ck_assert_ldouble_le_tol(orig, s21, 10e-7);
+  
+#test s21_atan_8
+  double a = 4565573445.123;
+  double orig = atan(a);
+  long double s21 = s21_atan(a);
+  ck_assert_ldouble_le_tol(orig, s21, 10e-7);
+  
+#test s21_atan_9
+  double a = -4565573445.123;
+  double orig = atan(a);
+  long double s21 = s21_atan(a);
+  ck_assert_ldouble_le_tol(orig, s21, 10e-7);

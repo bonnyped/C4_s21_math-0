@@ -63,8 +63,12 @@ long double s21_atan(double x) {
   if (result == result) {
     if (x == s21_POSITIVE_INFINITY || x == s21_NEGATIVE_INFINITY) {
       x > 0 ? result = s21_M_PI / 2 : (result = -s21_M_PI / 2);
-    } else
+    } else {
       result = s21_asin(x / s21_sqrt(1.0 + s21_pow(x, 2.0)));
+      if (result != result) {
+        result = s21_asin(1);
+      }
+    }
   }
   return result;
 }
@@ -270,7 +274,7 @@ long double s21_sin(double x) {
                             : (long double)x;
     long double add = x_sin;
     int n = 1;
-    while (s21_fabs(add) > 10e-9 && add != s21_POSITIVE_INFINITY && add != s21_NEGATIVE_INFINITY) {
+    while (s21_fabs(add) > 10e-10 && add != s21_POSITIVE_INFINITY && add != s21_NEGATIVE_INFINITY) {
       result += add;
       add *= -x_sin * x_sin / (2 * n * (2 * n + 1));
       n++;

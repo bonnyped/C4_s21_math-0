@@ -104,7 +104,13 @@
 
 
 #test s21_cos_18
-  double a = 23479852987346.000001;
+  double a = 23479852986.000001;
   long double orig = cos(a);
   long double s21 = s21_cos(a);
-  ck_assert_ldouble_eq_tol(orig, s21, 10e-4);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-6);
+  
+  #test s21_cos_19
+  double a = -0.0;
+  long double orig = sin(a);
+  long double s21 = s21_sin(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-6);

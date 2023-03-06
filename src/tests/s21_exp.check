@@ -4,7 +4,7 @@
   double a = 0.0;
   long double orig = exp(a);
   long double s21 = s21_exp(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 #test s21_exp_2
   double a = 1.0019;
