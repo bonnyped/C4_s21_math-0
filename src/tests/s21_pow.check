@@ -1,0 +1,342 @@
+#suite s21_pow_tests
+
+#test s21_pow_1
+  double base = 0.0;
+  double exp = 0.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_2
+  double base = 4.0;
+  double exp = 1.011;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_pow_3
+  double base = -4.0;
+  double exp = -1.011;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_nan(orig);
+  ck_assert_ldouble_nan(s21);
+
+#test s21_pow_4
+  double base = 0.0;
+  double exp = 0.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_pow_5
+  double base = 0.0;
+  double exp = -1.011;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_6
+  double base = 0.0;
+  double exp = -1;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_7
+  double base = -0.0;
+  double exp = -1;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_8
+  double base = -0.0;
+  double exp = -2.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_9
+  double base = -0.0;
+  double exp = -2.234234;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_10
+  double base = 0.0;
+  double exp = -2.234234;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_11
+  double base = 0.0;
+  double exp = -2.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_12
+  double base = 0.0;
+  double exp = s21_NEGATIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_13
+  double base = -0.0;
+  double exp = s21_NEGATIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_14
+  double base = 0.0;
+  double exp = 1.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_15
+  double base = 0.0;
+  double exp = -1.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_16
+  double base = -1;
+  double exp = s21_NEGATIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_pow_17
+  double base = -1;
+  double exp = s21_POSITIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_pow_18
+  double base = 1;
+  double exp = 1.011;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_19
+  double base = 1;
+  double exp = s21_NAN;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_20
+  double base = 1;
+  double exp = s21_POSITIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_21
+  double base = 1;
+  double exp = s21_NEGATIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_22
+  double base = 239746;
+  double exp = 0.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_23
+  double base = s21_NAN;
+  double exp = 0.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_24
+  double base = s21_NEGATIVE_INFINITY;
+  double exp = 0.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_25
+  double base = -12.2144;
+  double exp = 0.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_26
+  double base = -12.2144;
+  double exp = 0.1;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_nan(orig);
+  ck_assert_ldouble_nan(s21);
+
+#test s21_pow_27
+  double base = -12.0;
+  double exp = -0.1;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_nan(orig);
+  ck_assert_ldouble_nan(s21);
+
+#test s21_pow_28
+  double base = 0.1;
+  double exp = s21_NEGATIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_29
+  double base = 0.999999999;
+  double exp = s21_NEGATIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_30
+  double base = 2.1;
+  double exp = s21_NEGATIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_31
+  double base = 30.00;
+  double exp = s21_NEGATIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_32
+  double base = 0.1;
+  double exp = s21_POSITIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_33
+  double base = 0.999999999;
+  double exp = s21_POSITIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_34
+  double base = 2.1;
+  double exp = s21_POSITIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_35
+  double base = 30.00;
+  double exp = s21_POSITIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_36
+  double base = s21_NEGATIVE_INFINITY;
+  double exp = -3;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_37
+  double base = s21_NEGATIVE_INFINITY;
+  double exp = -1;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_38
+  double base = s21_NEGATIVE_INFINITY;
+  double exp = -1.234;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_39
+  double base = s21_NEGATIVE_INFINITY;
+  double exp = -12.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_40
+  double base = s21_NEGATIVE_INFINITY;
+  double exp = 3;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_41
+  double base = s21_NEGATIVE_INFINITY;
+  double exp = 3.324;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_42
+  double base = s21_NEGATIVE_INFINITY;
+  double exp = 12.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_43
+  double base = s21_POSITIVE_INFINITY;
+  double exp = 3.324;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_44
+  double base = s21_POSITIVE_INFINITY;
+  double exp = -12.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq(orig, s21);
+
+#test s21_pow_45
+  double base = s21_POSITIVE_INFINITY;
+  double exp = s21_NAN;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_nan(orig);
+  ck_assert_ldouble_nan(s21);
+
+#test s21_pow_46
+  double base = s21_NAN;
+  double exp = s21_NEGATIVE_INFINITY;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_nan(orig);
+  ck_assert_ldouble_nan(s21);
+
+#test s21_pow_47
+  double base = -3.23;
+  double exp = -2.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+
+#test s21_pow_48
+  double base = -1.23;
+  double exp = 12.0;
+  long double orig = pow(base, exp);
+  long double s21 = s21_pow(base, exp);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);

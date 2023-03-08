@@ -30,9 +30,9 @@ long double s21_pow(double base, double exp);
 long double s21_sin(double x);
 long double s21_sqrt(double x);
 long double s21_tan(double x);
-long double s21_max(double x);
 int is_negative_zero(double x);
 int is_integer_number(double x);
 int is_even_number(double x);
+int checking_number(double x);
 
 #endif  // S21_MATH_H

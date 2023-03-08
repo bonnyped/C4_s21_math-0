@@ -14,12 +14,6 @@ else
 	./test
 endif
 
-debug: main.o s21_math.a
-	$(CC) main.o s21_math.a -o debug -L. $(TEST_FLAGS) -lm
-	./debug
-main.o:
-	$(CC) $(CFLAGS) main.c -o main.o -lm
-
 test.o: test.c
 ifeq ($(OS),Darwin)
 	$(CC) $(CFLAGS) test.c -o test.o
@@ -31,7 +25,6 @@ test.c:
 	checkmk clean_mode=1 tests/include.file tests/*.check > test.c 
 	clang-format -i -style=google test.c
 
-
 s21_math.a : s21_math.c
 ifeq ($(OS),Darwin)
 	$(CC) -c $(CFLAGS) s21_math.c
@@ -39,6 +32,7 @@ else
 	$(CC) -c $(CFLAGS) s21_math.c -lm
 endif
 	ar rc s21_math.a s21_math.o
+
 gcov_report: test.c
 	$(CC) -fprofile-arcs -ftest-coverage test.c s21_math.c  -o tests/gcov_report $(TEST_FLAGS)
 	tests/./gcov_report
@@ -47,9 +41,9 @@ gcov_report: test.c
 
 open:
 ifeq ($(OS),Darwin)
-	xdg-open report/src/index.html
+	open -a "Google Chrome" /report/src/index.html
 else
-	open -a "Google Chrome" report/src/index.html
+	xdg-open report/src/index.html
 endif
 
 clang:
@@ -62,6 +56,6 @@ leak: test
 	CK_FORK=no valgrind --leak-check=full -s --track-origins=yes --log-file=leak.log ./test
 
 clean:
-	rm -rf *.o *.a *.out tests/*.info *.log *.html *.gc* test tests/gcov_report s21_math report test.c
+	rm -rf *.o *.a *.out tests/*.info tests/*.gcda tests/*.gcno *.log *.html *.gc* test tests/gcov_report s21_math report test.c
 
 rebuild: all
