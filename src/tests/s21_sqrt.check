@@ -44,8 +44,9 @@
   
  #test s21_sqrt_6
   double a = 1.0/0.0;
+  long double orig = sqrt(a);
   long double s21 = s21_sqrt(a);
-  ck_assert_ldouble_infinite(s21);
+  ck_assert_ldouble_eq(orig, s21);
   
   
  #test s21_sqrt_7

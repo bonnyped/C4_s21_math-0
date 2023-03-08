@@ -75,7 +75,7 @@
   
 #test s21_exp_13
   double a = 235235;
-  long double s21 = s21_exp(a);
+  long double orig = exp(a);
   long double s21 = s21_exp(a);
   ck_assert_ldouble_eq(orig, s21);
   
