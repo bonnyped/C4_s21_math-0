@@ -342,9 +342,7 @@ long double s21_sqrt(double x) {
       res = result;
       result = (x / result + result) / 2;
     }
-  } else if (x == 0) {
-    result = x;
-  } else if (x < 0) {
+  }  else if (x < 0) {
     result = s21_NAN;
   }
   return result;

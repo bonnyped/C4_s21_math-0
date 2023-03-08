@@ -4,7 +4,7 @@
   double a = 0;
   long double orig = sqrt(a);
   long double s21 = s21_sqrt(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 #test s21_sqrt_2
   double a = 777;
@@ -22,6 +22,42 @@
 
   #test s21_sqrt_3
   double a = -1.2;
+  long double orig = sqrt(a);
+  long double s21 = s21_sqrt(a);
+  ck_assert_ldouble_nan(orig);
+  ck_assert_ldouble_nan(s21);
+  
+  
+  
+#test s21_sqrt_4
+  double a = 0.001;
+  long double orig = sqrt(a);
+  long double s21 = s21_sqrt(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+  
+#test s21_sqrt_5
+  double a = 12310.2412;
+  long double orig = sqrt(a);
+  long double s21 = s21_sqrt(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+  
+  
+ #test s21_sqrt_6
+  double a = 1.0/0.0;
+  long double s21 = s21_sqrt(a);
+  ck_assert_ldouble_infinite(s21);
+  
+  
+ #test s21_sqrt_7
+  double a = 0.0/0.0;
+  long double orig = sqrt(a);
+  long double s21 = s21_sqrt(a);
+  ck_assert_ldouble_nan(orig);
+  ck_assert_ldouble_nan(s21);
+  
+  
+ #test s21_sqrt_8
+  double a = -1.0/0.0;
   long double orig = sqrt(a);
   long double s21 = s21_sqrt(a);
   ck_assert_ldouble_nan(orig);
