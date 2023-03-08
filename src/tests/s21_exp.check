@@ -26,8 +26,10 @@
   
 #test s21_exp_5
   double a = 1374532334;
+  long double orig = exp(a);
   long double s21 = s21_exp(a);
-  ck_assert_ldouble_infinite(s21);
+  //ck_assert_ldouble_infinite(s21);
+  ck_assert_ldouble_eq(orig, s21);
   
 #test s21_exp_6
   double a = 0.00001;
@@ -57,7 +59,8 @@
 #test s21_exp_10
   double a = 1.0/0.0;
   long double s21 = s21_exp(a);
-  ck_assert_ldouble_infinite(s21);
+  long double orig = exp(a);
+  ck_assert_ldouble_eq(orig, s21);
   
 #test s21_exp_11
   double a = -1.0/0.0;
@@ -73,7 +76,8 @@
 #test s21_exp_13
   double a = 235235;
   long double s21 = s21_exp(a);
-  ck_assert_ldouble_infinite(s21);
+  long double s21 = s21_exp(a);
+  ck_assert_ldouble_eq(orig, s21);
   
 #test s21_exp_14
   double a = -23523523;
