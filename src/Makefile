@@ -6,10 +6,12 @@ TEST_FLAGS = $(shell pkg-config --cflags --libs check)
 all : clean s21_math.a test gcov_report
 
 test: test.o s21_math.a
-ifeq ($(OS),Linux)
-	$(CC) test.o s21_math.a -o test -L. $(TEST_FLAGS) -lm
-else
+ifeq ($(OS),Darwin)
 	$(CC) test.o s21_math.a -o test -L. $(TEST_FLAGS)
+	./test
+else
+	$(CC) test.o s21_math.a -o test -L. $(TEST_FLAGS) -lm
+	./test
 endif
 
 debug: main.o s21_math.a
@@ -19,10 +21,10 @@ main.o:
 	$(CC) $(CFLAGS) main.c -o main.o -lm
 
 test.o: test.c
-ifeq ($(OS),Linux)
-	$(CC) $(CFLAGS) test.c -o test.o -lm
-else
+ifeq ($(OS),Darwin)
 	$(CC) $(CFLAGS) test.c -o test.o
+else
+	$(CC) $(CFLAGS) test.c -o test.o -lm
 endif
 
 test.c: 
@@ -31,10 +33,10 @@ test.c:
 
 
 s21_math.a : s21_math.c
-ifeq ($(OS),Linux)
-	$(CC) -c $(CFLAGS) s21_math.c -lm
-else
+ifeq ($(OS),Darwin)
 	$(CC) -c $(CFLAGS) s21_math.c
+else
+	$(CC) -c $(CFLAGS) s21_math.c -lm
 endif
 	ar rc s21_math.a s21_math.o
 gcov_report: test.c
@@ -57,11 +59,7 @@ clangI:
 	clang-format -i -style=google *.c *.h
 
 leak: test
-ifeq ($(OS),Darwin)
 	CK_FORK=no valgrind --leak-check=full -s --track-origins=yes --log-file=leak.log ./test
-else
-	CK_FORK=no valgrind --leak-check=full -s --track-origins=yes --log-file=leak.log ./test
-endif	
 
 clean:
 	rm -rf *.o *.a *.out tests/*.info *.log *.html *.gc* test tests/gcov_report s21_math report test.c

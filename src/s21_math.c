@@ -1,8 +1,8 @@
 #include "s21_math.h"
 
 #include <math.h>    // del
+#include <stdio.h>   //del
 #include <stdlib.h>  // del
-#include <stdio.h> //del
 
 int checking_number(double x) {
   int stop = 0;
@@ -14,65 +14,62 @@ int checking_number(double x) {
 }
 
 int s21_abs(int x) {
-	int result = x;
-	if (x < 0) {
-		result = -result;
-	}
-	return result;
+  int result = x;
+  if (x < 0) {
+    result = -result;
+  }
+  return result;
 }
 
+// long double s21_acos(double x) { return s21_M_PI / 2 - s21_asin(x); }
+//  проблемы с точностью 0.9
+//  long double s21_asin(double x) {
+//    long double result = 0;
+//    if (checking_number(x) && x > -1 && x < 1) {
+//      long double add = x;
+//      int n = 1;
+//      long double x2 = x * x;
+//      while (s21_fabs(add) > 10e-8 && add != s21_POSITIVE_INFINITY && add !=
+//      s21_NEGATIVE_INFINITY ) {
+//        result += add;                                                     //
+//        del add *= x2 * (2 *  n - 1) * (2 * n - 1) / ((2 * n + 1) * (2 * n));
+//        n++;
+//      }
+//    } else if (x == -x && x != s21_NEGATIVE_INFINITY && x !=
+//    s21_POSITIVE_INFINITY) {
+//      result =  x;
+//    } else if (x == 1 || x == -1) {
+//      result =  s21_M_05PI * x;
+//    } else {
+//      result =  x * 0.0/0;
+//    }
+//    return result;
+//  }
 
-//long double s21_acos(double x) { return s21_M_PI / 2 - s21_asin(x); }
-// проблемы с точностью 0.9
-// long double s21_asin(double x) {
-//   long double result = 0;
-//   if (checking_number(x) && x > -1 && x < 1) {
-//     long double add = x;
-//     int n = 1;
-//     long double x2 = x * x;
-//     while (s21_fabs(add) > 10e-8 && add != s21_POSITIVE_INFINITY && add !=
-//     s21_NEGATIVE_INFINITY ) {
-//       result += add;                                                     //
-//       del add *= x2 * (2 *  n - 1) * (2 * n - 1) / ((2 * n + 1) * (2 * n));
-//       n++;
-//     }
-//   } else if (x == -x && x != s21_NEGATIVE_INFINITY && x !=
-//   s21_POSITIVE_INFINITY) {
-//     result =  x;
-//   } else if (x == 1 || x == -1) {
-//     result =  s21_M_05PI * x;
-//   } else {
-//     result =  x * 0.0/0;
-//   }
-//   return result;
-// }
-
-long double s21_acos(double x) {
-  return s21_M_05PI - asin(x);
-}
+long double s21_acos(double x) { return s21_M_05PI - asin(x); }
 
 long double s21_asin(double x) {
   long double result = 0;
-  if (x == s21_NAN || x >1 || x <-1 || x != x){
+  if (x == s21_NAN || x > 1 || x < -1 || x != x) {
     result = s21_NAN;
   } else if (x == 1.0) {
     result = s21_M_05PI;
   } else if (x == -1.0) {
     result = -s21_M_05PI;
-  } else if (x == 0){
-    result = 0;}
-    else {
+  } else if (x == 0) {
+    result = 0;
+  } else {
     long double left = -s21_M_05PI;
     long double right = s21_M_05PI;
-    while ((right - left)/2 > 10e-14){
-      long double center = (right + left)/2;
+    while ((right - left) / 2 > 10e-14) {
+      long double center = (right + left) / 2;
       if (s21_sin(center) - x < 0) {
         left = center;
       } else {
         right = center;
       }
     }
-    result = (right + left)/2;
+    result = (right + left) / 2;
   }
   return result;
 }
@@ -112,46 +109,52 @@ long double s21_ceil(double x) {
 }
 
 long double s21_cos(double x) {
-	long double result = 0;
-	long double prev = -1;
-	long double add = 1;
-	int n = 1;
-	if (x == s21_NAN || x == s21_POSITIVE_INFINITY || x == s21_NEGATIVE_INFINITY || x != x){
-	result = s21_NAN;
-	} else {
-	  x = s21_fabs(x);
-	  x = s21_fmod(x , (2 * s21_M_PI));
-	  while (result != prev) {
-		  prev = result;
-		  result = result + add;
-		  add = -add * x * x / (2*n) / (2*n-1);
-		  n++;
-	  }
-	}
-	return result;
+  long double result = 0;
+  long double prev = -1;
+  long double add = 1;
+  int n = 1;
+  if (x == s21_NAN || x == s21_POSITIVE_INFINITY ||
+      x == s21_NEGATIVE_INFINITY || x != x) {
+    result = s21_NAN;
+  } else {
+    x = s21_fabs(x);
+    x = s21_fmod(x, (2 * s21_M_PI));
+    while (result != prev) {
+      prev = result;
+      result = result + add;
+      add = -add * x * x / (2 * n) / (2 * n - 1);
+      n++;
+    }
+  }
+  return result;
 }
 
 long double s21_exp(double x) {
-	long double result = 0;
-	long double prev = -1;
-	long double add = 1;
-	int n = 1;
-	if (x != x) {
-	  result = s21_NAN;
-	} else {
-	  if (x < 0) {
-		  result = 1 / s21_exp(-x);
-		  prev = result;
-	  }
-	  while (result != prev && add > s21_EPSILON) {
-		  prev = result;
-		  result = result + add;
-		  add = add * x / n;
-		  n++;
-	  }
-	}
-	return result;
+  long double result = 0;
+  long double prev = -1;
+  long double add = 1;
+  int n = 1;
+  if (x != x) {
+    result = s21_NAN;
+  } else {
+    if (x < 0) {
+      result = 1 / s21_exp(-x);
+      prev = result;
+    }
+    while (result != prev && add > s21_EPSILON) {
+      prev = result;
+      result = result + add;
+      add = add * x / n;
+      // printf("prev is %Lf, curr is %Lf to add is %Lf\n", prev, result, add);
+      n++;
+    }
+  }
+  return result;
 }
+/*long double s21_exp(double x) {
+        long double result = s21_pow(s21_EXP ,x);
+        return result;
+}*/
 
 long double s21_fabs(double x) {
   long double result = x;
@@ -221,11 +224,11 @@ long double s21_log(double x) {
   if (x > 0 && x != 1 && checking_number(x)) {
     result = 0;
     long double xx = x;
-    //long double res = -100;
+    // long double res = -100;
     while (++n, (xx /= s21_EXP) > s21_EXP)
       ;
-    while (s21_fabs(xx - s21_exp(result)) / (xx + s21_exp(result))>1e-10) {
-      //res = result;
+    while (s21_fabs(xx - s21_exp(result)) / (xx + s21_exp(result)) > 1e-10) {
+      // res = result;
       result += (xx - s21_exp(result)) / (xx + s21_exp(result));
     }
     result += n;
@@ -298,7 +301,8 @@ long double s21_sin(double x) {
                             : (long double)x;
     long double add = x_sin;
     int n = 1;
-    while (s21_fabs(add) > 10e-10 && add != s21_POSITIVE_INFINITY && add != s21_NEGATIVE_INFINITY) {
+    while (s21_fabs(add) > 10e-10 && add != s21_POSITIVE_INFINITY &&
+           add != s21_NEGATIVE_INFINITY) {
       result += add;
       add *= -x_sin * x_sin / (2 * n * (2 * n + 1));
       n++;
@@ -347,7 +351,6 @@ long double s21_sqrt(double x) {
 }
 
 long double s21_tan(double x) { return s21_sin(x) / s21_cos(x); }
-
 
 long double s21_max(double x) {
   long double max = 1;

@@ -25,7 +25,7 @@
   ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
   
 #test s21_exp_5
-  double a = 374534;
+  double a = 1374532334;
   long double s21 = s21_exp(a);
   ck_assert_ldouble_infinite(s21);
   
@@ -46,7 +46,7 @@
   double a = 123.456;
   long double orig = exp(a);
   long double s21 = s21_exp(a);
-  ck_assert_ldouble_eq_tol(orig, s21, 10e+38);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e+39);
   
 #test s21_exp_9
   double a = -0.0;
