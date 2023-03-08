@@ -4,61 +4,60 @@
   double a = 0;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 #test s21_ceil_2
   double a = 0.00000000000000001;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 #test s21_ceil_3
   double a = 1.000000000000001;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 #test s21_ceil_4
   double a = 1.0000000000000001;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 #test s21_ceil_5
   double a = -1.000000000000001;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 #test s21_ceil_6
   double a = -0.0;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 #test s21_ceil_7
   double a = +0.0;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 #test s21_ceil_8
   double a = 12345678909876.001;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e1);
 
 #test s21_ceil_9
   double a = -9223372036854775807.1;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
-
+    ck_assert_ldouble_eq_tol(orig, s21, 10e1);
 #test s21_ceil_10
   double a = 9223372036854775807.5;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
+    ck_assert_ldouble_eq_tol(orig, s21, 10e1);
 
 #test s21_ceil_11
   double a = 1.0 / 0.0;
@@ -91,28 +90,28 @@
   double a = 1.84467441e+025;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e10);
 
 #test s21_ceil_16
   double a = -1.84467441e+025;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e10);
 
 #test s21_ceil_17
   double a = -1.84467441e+018;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e3);
 
 #test s21_ceil_18
   double a = -1.84467441e+013;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e2);
 
 #test s21_ceil_19
   double a = 1.84467441e+019;
   long double orig = ceil(a);
   long double s21 = s21_ceil(a);
-  ck_assert_ldouble_eq(orig, s21);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e4);

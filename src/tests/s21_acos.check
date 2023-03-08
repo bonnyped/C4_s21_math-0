@@ -195,5 +195,20 @@
   long double orig = acos(a);
   long double s21 = s21_acos(a);
   ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
+  
+  
+  
+#test s21_acos_31
+  double a = 123;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_nan(orig);
+  ck_assert_ldouble_nan(s21);
 
 
+#test s21_acos_32
+  double a = -123;
+  long double orig = acos(a);
+  long double s21 = s21_acos(a);
+  ck_assert_ldouble_nan(orig);
+  ck_assert_ldouble_nan(s21);

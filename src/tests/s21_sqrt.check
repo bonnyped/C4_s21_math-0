@@ -62,3 +62,10 @@
   long double s21 = s21_sqrt(a);
   ck_assert_ldouble_nan(orig);
   ck_assert_ldouble_nan(s21);
+  
+  
+  #test s21_sqrt_9
+  double a = 23523660;
+  long double orig = sqrt(a);
+  long double s21 = s21_sqrt(a);
+  ck_assert_ldouble_eq_tol(orig, s21, 10e-7);

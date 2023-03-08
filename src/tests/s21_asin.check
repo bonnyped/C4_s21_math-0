@@ -197,3 +197,18 @@
   ck_assert_ldouble_eq_tol(orig, s21, 10e-7);
 
 
+#test s21_asin_31
+  double a = 123;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_nan(orig);
+  ck_assert_ldouble_nan(s21);
+
+
+#test s21_asin_32
+  double a = -123;
+  long double orig = asin(a);
+  long double s21 = s21_asin(a);
+  ck_assert_ldouble_nan(orig);
+  ck_assert_ldouble_nan(s21);
+
