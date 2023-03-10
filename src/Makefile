@@ -3,7 +3,7 @@ CFLAGS = -g -Wall  -Wextra -Werror -std=c11 -c
 UNAME:=$(shell uname -s)
 TEST_FLAGS = $(shell pkg-config --cflags --libs check)
 
-all : clean s21_math.a test gcov_report
+all : clean s21_math.a test
 
 test: test.o s21_math.a
 ifeq ($(OS),Darwin)
@@ -41,7 +41,7 @@ gcov_report: test.c
 
 open:
 ifeq ($(OS),Darwin)
-	open -a "Google Chrome" /report/src/index.html
+	open -a "Google Chrome" 	report/src/index.html
 else
 	xdg-open report/src/index.html
 endif
@@ -52,8 +52,12 @@ clang:
 clangI:
 	clang-format -i -style=google *.c *.h
 
-leak: test
+leak:
+ifeq ($(OS),Darwin)
+	CK_FORK=no leaks -atExit -- ./test
+else
 	CK_FORK=no valgrind --leak-check=full -s --track-origins=yes --log-file=leak.log ./test
+endif
 
 clean:
 	rm -rf *.o *.a *.out tests/*.info tests/*.gcda tests/*.gcno *.log *.html *.gc* test tests/gcov_report s21_math report test.c
