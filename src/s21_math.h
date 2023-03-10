@@ -1,10 +1,6 @@
 #ifndef S21_MATH_H
 #define S21_MATH_H
 
-#include <limits.h>
-#include <math.h>
-#include <stdio.h>
-
 #define s21_EXP 2.71828182845904523536028747
 #define s21_M_05PI 3.14159265358979323846 * 0.5
 #define s21_M_PI 3.14159265358979323846
